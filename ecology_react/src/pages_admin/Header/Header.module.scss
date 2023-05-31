@@ -1,0 +1,20 @@
+.header {
+  width: 100%;
+  background-color: var(--eerie-black-1);
+  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.8);
+  padding-block: 18px;
+  display: flex;
+  justify-content: center;
+  .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  a {
+    color: var(--white);
+    font-size: 25px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,183 @@
+.langSwitch,
+.headerAction {
+  display: none;
+}
+
+.header {
+ 
+  width: 100%;
+  background-color: var(--eerie-black-1);
+  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.8);
+  padding-block: 18px;
+  z-index: 4;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 140px);
+    height: 1px;
+    background-color: var(--white_10);
+  }
+}
+
+.header.active::after {
+  display: none;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.logo {
+  color: var(--white);
+  font-family: var(--ff-oswald);
+  font-size: 3.2rem;
+  text-transform: uppercase;
+}
+
+.navOpenBtn {
+  color: var(--white);
+  font-size: 3.8rem;
+}
+
+.navbar {
+  position: fixed;
+  background-color: var(--eerie-black-1);
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  visibility: hidden;
+  transition: 0.25s var(--cubic-in);
+}
+
+.navbar.active {
+  transform: translateY(-100%);
+  visibility: visible;
+  transition: 0.5s var(--cubic-out);
+}
+
+.navCloseBtn {
+  color: var(--white);
+  font-size: 2.4rem;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.navCloseBtn ion-icon {
+  --ionicon-stroke-width: 60px;
+}
+
+.navbar > .logo {
+  font-size: 4rem;
+  width: max-content;
+  margin-inline: auto;
+  margin-block-start: 50px;
+}
+
+.navbarList {
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  padding-inline: 10px;
+  opacity: 0;
+  transition: 0.5s ease;
+  transition-delay: 0s;
+}
+
+.navbar.active .navbarList {
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+
+.navbarLink {
+  color: var(--white);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-500);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 10px 15px;
+  padding-block: 8px;
+  transition: var(--transition-1);
+}
+
+.navbarLink:is(:hover, :focus) {
+  background-color: var(--pistachio);
+}
+
+@media (min-width: 992px) {
+  .header {
+    transition: var(--transition-2);
+  }
+
+  .headerAction {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navOpenBtn,
+  .navCloseBtn,
+  .navbar > .logo,
+  .navbarLink > ion-icon {
+    display: none;
+  }
+
+  .header {
+    padding-block: 25px;
+  }
+
+  .langSwitch {
+    position: relative;
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    font: inherit;
+    font-size: var(--fs-8);
+    font-weight: var(--fw-600);
+  }
+
+  .langSwitch option {
+    color: var(--eerie-black-1);
+  }
+
+  .navbar {
+    all: unset;
+    margin-inline: auto;
+  }
+
+  .navbarList {
+    all: unset;
+    display: flex;
+    gap: 10px;
+  }
+
+  .navbarLink {
+    font-size: var(--fs-8);
+    font-weight: var(--fw-600);
+    text-transform: capitalize;
+    transition: var(--transition-2);
+  }
+
+  .navbarLink:is(:hover, :focus) {
+    background: none;
+  }
+
+  .navbarList:hover .navbarLink:not(:hover) {
+    color: var(--white-60);
+  }
+}
