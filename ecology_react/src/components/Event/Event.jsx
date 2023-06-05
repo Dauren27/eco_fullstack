@@ -5,16 +5,22 @@ const Event = ({ event }) => {
   const navigate = useNavigate();
   return (
     <div className={cl.box}>
-      <img src="/images/event6.jpg" alt="" />
+      <img src={`http://localhost:5050/${event.picture}`} alt="" />
       <div className={cl.content}>
         <h3>
           {event.date} / {event.time}
         </h3>
-        <h3 onClick={() => navigate(`/events/${event._id}`)} className={cl.title}>
+        <h3
+          onClick={() => navigate(`/events/${event._id}`)}
+          className={cl.title}
+        >
           {event.title}
         </h3>
         {/* <p>{event.text}</p> */}
-        <button onClick={() => navigate(`/events/${event._id}`)} className="btn">
+        <button
+          onClick={() => navigate(`/events/${event._id}`)}
+          className="btn"
+        >
           Подробнее
         </button>
       </div>

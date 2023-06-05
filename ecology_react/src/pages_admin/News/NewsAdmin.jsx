@@ -16,7 +16,16 @@ const NewsAdmin = () => {
     title: "",
     text: "",
     date: "",
+    picture: null,
   });
+  const submit = async () => {
+    const formData = new FormData();
+    formData.append("title", state.title);
+    formData.append("text", state.text);
+    formData.append("date", state.date);
+    formData.append("picture", state.picture);
+    create(formData);
+  };
   return (
     <div className={cl.events}>
       <HeaderAdmin />
@@ -41,12 +50,22 @@ const NewsAdmin = () => {
               placeholder="Текст"
               onChange={(e) => setState({ ...state, text: e.target.value })}
             />
+            <input
+              type="file"
+              onChange={(e) => {
+                setState({
+                  ...state,
+                  picture: e.target.files[0],
+                });
+              }}
+            />
+
             {isError && <p className={cl.error}>{error?.data?.message}</p>}
             {isLoading && <p className={cl.loading}>Загрузка...</p>}
             {isSuccess && (
               <p className={cl.success}>Новость успешно добавлено</p>
             )}
-            <button className="btn" onClick={() => create(state)}>
+            <button className="btn" onClick={() => submit()}>
               Добавить новость
             </button>
           </div>
@@ -55,7 +74,7 @@ const NewsAdmin = () => {
           {data &&
             data.map((item) => (
               <div className={cl.box}>
-                <img src="/images/news.jpg" alt="" />
+                <img src={`http://localhost:5050/${item.picture}`} alt="" />
                 <div className={cl.content}>
                   <h3>{item.date}</h3>
                   <h3 className={cl.title}>{item.title}</h3>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -74,7 +75,7 @@ const About = () => {
             Ресурсы не безграничны, <strong>будем же экономичнее!</strong>
           </h2>
 
-          <ul class="tab-nav">
+          {/* <ul class="tab-nav">
             <li>
               <button class="tab-btn active">Наша миссия</button>
             </li>
@@ -86,7 +87,7 @@ const About = () => {
             <li>
               <button class="tab-btn">Следующие планы</button>
             </li>
-          </ul>
+          </ul> */}
 
           <div class="tab-content">
             <p class="section-text">
@@ -128,12 +129,13 @@ const About = () => {
                 <p class="tab-text">Charity For Medical</p>
               </li>
             </ul>
+            <Link to="/about">
+              <button class="btn btn-secondary">
+                <span>Узнать больше</span>
 
-            <button class="btn btn-secondary">
-              <span>Узнать больше</span>
-
-              <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-            </button>
+                <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

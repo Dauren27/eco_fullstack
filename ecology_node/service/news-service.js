@@ -1,9 +1,10 @@
 const NewsModel = require("../models/news-model");
+const fileService = require("./file-service");
 
 class NewsService {
   async create(body, picture) {
-    //const fileName = fileService.saveFile(picture);
-    const createdNews = await NewsModel.create(body);
+    const fileName = fileService.saveFile(picture);
+    const createdNews = await NewsModel.create({ ...body, picture: fileName });
     return createdNews;
   }
   async getAll() {

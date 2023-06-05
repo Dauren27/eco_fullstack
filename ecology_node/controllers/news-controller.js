@@ -4,13 +4,18 @@ class NewsController {
   async create(req, res) {
     try {
       const { title, text, date } = req.body;
-      const News = await NewsService.create({
-        title,
-        text,
-        date,
-      });
+      const { picture } = req.files;
+      const News = await NewsService.create(
+        {
+          title,
+          text,
+          date,
+        },
+        picture
+      );
       res.json(News);
     } catch (e) {
+      console.log(e);
       res.status(500).json(e);
     }
   }

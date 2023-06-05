@@ -1,10 +1,13 @@
 const EventModel = require("../models/event-model");
-const fileService=require("./file-service.js");
+const fileService = require("./file-service.js");
 
 class EventService {
-  async create(body,picture) {
-    //const fileName = fileService.saveFile(picture);
-    const createdEvent = await EventModel.create(body);
+  async create(body, picture) {
+    const fileName = fileService.saveFile(picture);
+    const createdEvent = await EventModel.create({
+      ...body,
+      picture: fileName,
+    });
     return createdEvent;
   }
   async getAll() {

@@ -4,6 +4,7 @@ import Layout from "../../Layout/Layout";
 import { FaUserAlt } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useLogoutMutation } from "../../redux/reducers/authApi";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { user, isAuth } = useSelector((state) => state.auth);
@@ -20,12 +21,25 @@ const Profile = () => {
                 {!isLoading ? (
                   <>
                     <div className={cl.profile__info}>
-                      <FaUserAlt />
+                      <div className={cl.circle}>
+                        <FaUserAlt />
+                      </div>
                       <div className={cl.profile__text}>
-                        <h3>{user && user.email}</h3>
+                        <h3>
+                          <span>Имя пользователя: </span>
+                          {user && user.username}
+                        </h3>
+                        <h3>
+                          <span>Логин: </span>
+                          {user && user.email}
+                        </h3>
+
+                        {isAuth && user.email == "Admin" && (
+                          <Link to="/admin/news">Админка</Link>
+                        )}
+                        <button onClick={() => logout()}>Выйти</button>
                       </div>
                     </div>
-                    <button onClick={() => logout()}>Выйти</button>
                   </>
                 ) : (
                   <h1>Загрузка...</h1>

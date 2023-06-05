@@ -1,11 +1,21 @@
 .about {
-    padding-top: 30px;
+  padding-top: 30px;
   .about__content {
     h1 {
       font-size: 4.5rem;
       color: #333;
       line-height: 60px;
       font-weight: 500;
+      margin-bottom: 30px;
+    }
+    p {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #000;
+      font-weight: 400;
+    }
+    .text__item {
+      margin-left: 20px;
     }
   }
 }

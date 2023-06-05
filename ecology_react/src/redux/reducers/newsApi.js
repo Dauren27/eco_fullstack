@@ -3,13 +3,16 @@ import { API_URL } from "../../http";
 
 export const newsApi = createApi({
   reducerPath: "newsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: API_URL, credentials: "include" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: API_URL,
+    credentials: "include",
+  }),
   endpoints: (build) => ({
     create: build.mutation({
-      query: (body) => ({
+      query: (formData) => ({
         url: "/news",
         method: "POST",
-        body,
+        body: formData,
       }),
     }),
     update: build.mutation({
@@ -22,7 +25,7 @@ export const newsApi = createApi({
     deleteNews: build.mutation({
       query: (id) => ({
         url: `/news/${id}`,
-        method: "DELETE"
+        method: "DELETE",
       }),
     }),
     getNews: build.query({
@@ -34,8 +37,8 @@ export const newsApi = createApi({
 });
 
 export const {
-    useCreateMutation,
-    useDeleteNewsMutation,
-    useGetNewsQuery,
-    useUpdateMutation
+  useCreateMutation,
+  useDeleteNewsMutation,
+  useGetNewsQuery,
+  useUpdateMutation,
 } = newsApi;

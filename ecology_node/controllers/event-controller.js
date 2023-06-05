@@ -4,13 +4,17 @@ class EventController {
   async create(req, res) {
     try {
       const { title, text, date, time, address } = req.body;
-      const event = await EventService.create({
-        title,
-        text,
-        date,
-        time,
-        address,
-      });
+      const { picture } = req.files;
+      const event = await EventService.create(
+        {
+          title,
+          text,
+          date,
+          time,
+          address,
+        },
+        picture
+      );
       res.json(event);
     } catch (e) {
       res.status(500).json(e);

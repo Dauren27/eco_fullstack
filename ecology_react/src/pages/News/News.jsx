@@ -23,17 +23,20 @@ const News = () => {
           <div className={cl.news__content}>
             <h1>Новости</h1>
             <div className={cl.news__container}>
-              {news &&
+              {news ? (
                 news.map((item) => (
                   <div className={cl.box}>
-                    <img src="/images/news.jpg" alt="" />
+                    <img src={`http://localhost:5050/${item.picture}`} alt="" />
                     <div className={cl.content}>
                       <h3>{item.title}</h3>
                       <p>{item.text}</p>
                       <span>{item.date}</span>
                     </div>
                   </div>
-                ))}
+                ))
+              ) : (
+                <h2>Загрузка...</h2>
+              )}
             </div>
           </div>
         </div>

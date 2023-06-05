@@ -6,6 +6,7 @@ const EventSchema = new Schema({
   date: { type: String, reuired: true },
   time: { type: String, reuired: true },
   address: { type: String, required: true },
+  picture: { type: String },
 });
 
 module.exports = model("Event", EventSchema);

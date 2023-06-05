@@ -19,8 +19,18 @@ const EventsAdmin = () => {
     date: "",
     time: "",
     address: "",
+    picture: null,
   });
-
+  const submit = async () => {
+    const formData = new FormData();
+    formData.append("title", state.title);
+    formData.append("text", state.text);
+    formData.append("date", state.date);
+    formData.append("time", state.time);
+    formData.append("address", state.address);
+    formData.append("picture", state.picture);
+    create(formData);
+  };
   return (
     <div className={cl.events}>
       <HeaderAdmin />
@@ -57,12 +67,21 @@ const EventsAdmin = () => {
               placeholder="Текст"
               onChange={(e) => setState({ ...state, text: e.target.value })}
             />
+            <input
+              type="file"
+              onChange={(e) => {
+                setState({
+                  ...state,
+                  picture: e.target.files[0],
+                });
+              }}
+            />
             {isError && <p className={cl.error}>{error?.data?.message}</p>}
             {isLoading && <p className={cl.loading}>Загрузка...</p>}
             {isSuccess && (
               <p className={cl.success}>Событие успешно добавлено</p>
             )}
-            <button className="btn" onClick={() => create(state)}>
+            <button className="btn" onClick={() => submit()}>
               Добавить событие
             </button>
           </div>
@@ -71,7 +90,7 @@ const EventsAdmin = () => {
           {data &&
             data.map((item) => (
               <div className={cl.box}>
-                <img src="/images/event6.jpg" alt="" />
+                <img src={`http://localhost:5050/${item.picture}`} alt="" />
                 <div className={cl.content}>
                   <h3>
                     {item.date} / {item.time}

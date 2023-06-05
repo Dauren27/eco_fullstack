@@ -15,30 +15,55 @@ import Profile from "./pages/Profile/Profile";
 import { useRefreshQuery } from "./redux/reducers/authApi";
 import EventsAdmin from "./pages_admin/Events/EventsAdmin";
 import NewsAdmin from "./pages_admin/News/NewsAdmin";
+import { useSelector } from "react-redux";
+import DonationDetails from "./pages/DonationDetails/DonationDetails";
 
 function App() {
   const {} = useRefreshQuery();
+  const { user, isAuth } = useSelector((state) => state.auth);
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/events/:id" element={<EventIdPage />} />
-          <Route path="/projects/tree" element={<TreeProject />} />
-          <Route path="/projects/animal" element={<AnimalProject />} />
-          <Route path="/projects/garbage" element={<CleaningProject />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/donate" element={<Donate />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/admin/events" element={<EventsAdmin />} />
-          <Route path="/admin/news" element={<NewsAdmin />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        {isAuth && user.email == "Admin" ? (
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/events/:id" element={<EventIdPage />} />
+            <Route path="/projects/tree" element={<TreeProject />} />
+            <Route path="/projects/animal" element={<AnimalProject />} />
+            <Route path="/projects/garbage" element={<CleaningProject />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/donate" element={<Donate />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/donate/details" element={<DonationDetails />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/admin/events" element={<EventsAdmin />} />
+            <Route path="/admin/news" element={<NewsAdmin />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/events/:id" element={<EventIdPage />} />
+            <Route path="/projects/tree" element={<TreeProject />} />
+            <Route path="/projects/animal" element={<AnimalProject />} />
+            <Route path="/projects/garbage" element={<CleaningProject />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/donate" element={<Donate />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/donate/details" element={<DonationDetails />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        )}
       </BrowserRouter>
     </div>
   );

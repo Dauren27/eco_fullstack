@@ -21,7 +21,11 @@ const Events = () => {
       <div className={`container ${cl.container}`}>
         <h1 class="h2">Наши события</h1>
         <div class={cl.boxContainer}>
-          {events ? events.map((event) => <Event event={event}/>):<h1>Загрузка...</h1>}
+          {events ? (
+            events.map((event) => <Event event={event} />)
+          ) : (
+            <h1>Загрузка...</h1>
+          )}
         </div>
       </div>
     </section>

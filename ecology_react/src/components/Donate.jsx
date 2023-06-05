@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Donate = () => {
   return (
     <section class="section donate" id="donate">
@@ -63,12 +63,13 @@ const Donate = () => {
                   </data>
                 </p>
               </div>
+              <Link to="/donate/details">
+                <button class="btn btn-secondary">
+                  <span>Пожертвовать</span>
 
-              <button class="btn btn-secondary">
-                <span>Пожертвовать</span>
-
-                <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-              </button>
+                  <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+                </button>
+              </Link>
             </div>
           </div>
         </li>
@@ -132,12 +133,13 @@ const Donate = () => {
                   </data>
                 </p>
               </div>
+              <Link to="/donate/details">
+                <button class="btn btn-secondary">
+                  <span>Пожертвовать</span>
 
-              <button class="btn btn-secondary">
-                <span>Пожертвовать</span>
-
-                <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-              </button>
+                  <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+                </button>
+              </Link>
             </div>
           </div>
         </li>
@@ -172,9 +174,7 @@ const Donate = () => {
                 <div class="progress"></div>
               </div>
 
-              <h3 class="h3 card-title">
-                Пожертвуйте деньги на защиту оленей
-              </h3>
+              <h3 class="h3 card-title">Пожертвуйте деньги на защиту оленей</h3>
 
               <div class="card-wrapper">
                 <p class="card-wrapper-text">
@@ -201,12 +201,13 @@ const Donate = () => {
                   </data>
                 </p>
               </div>
+              <Link to="/donate/details">
+                <button class="btn btn-secondary">
+                  <span>Пожертвовать</span>
 
-              <button class="btn btn-secondary">
-                <span>Пожертвовать</span>
-
-                <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-              </button>
+                  <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+                </button>
+              </Link>
             </div>
           </div>
         </li>
@@ -270,12 +271,13 @@ const Donate = () => {
                   </data>
                 </p>
               </div>
+              <Link to="/donate/details">
+                <button class="btn btn-secondary">
+                  <span>Пожертвовать</span>
 
-              <button class="btn btn-secondary">
-                <span>Пожертвовать</span>
-
-                <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-              </button>
+                  <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+                </button>
+              </Link>
             </div>
           </div>
         </li>

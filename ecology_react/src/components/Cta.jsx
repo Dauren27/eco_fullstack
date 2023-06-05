@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Cta = () => {
   return (
@@ -8,10 +9,12 @@ const Cta = () => {
           <h2 class="h2 section-title">
             Множество партнёров по всему Кыргызстану
           </h2>
-          <button class="btn btn-outline">
-            <span>Стать партнёром</span>
-            <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-          </button>
+          <Link to="/contacts">
+            <button class="btn btn-outline">
+              <span>Стать партнёром</span>
+              <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </Link>
         </div>
         <figure class="cta-banner">
           <img

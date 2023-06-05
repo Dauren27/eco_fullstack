@@ -25,7 +25,7 @@ const EventIdPage = () => {
           {event ? (
             <div className={cl.event__content}>
               <div className={cl.left}>
-                <img src="/images/event6.jpg" alt="" />
+                <img src={`http://localhost:5050/${event.picture}`} alt="" />
               </div>
               <div class={cl.right}>
                 <h1>{event.title}</h1>

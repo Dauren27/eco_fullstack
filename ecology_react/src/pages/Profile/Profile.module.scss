@@ -12,18 +12,42 @@
     }
     .profile__info {
       margin-top: 70px;
+      display: flex;
+      .circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        border: 5px solid #000;
+      }
       svg {
-        width: 100px;
+        width: 120px;
         height: auto;
         color: #000;
       }
       .profile__text {
-        margin-top: 20px;
+        margin-left: 70px;
         h3 {
-          font-size: 25px;
+          span {
+            margin-right: 15px;
+            font-size: 20px;
+            text-decoration: underline;
+          }
+          display: flex;
+          font-size: 23px;
           color: #333;
           line-height: 60px;
           font-weight: 500;
+        }
+        a {
+          font-size: 23px;
+          color: #192bc2;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
